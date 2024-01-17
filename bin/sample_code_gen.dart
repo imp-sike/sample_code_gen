@@ -1,5 +1,16 @@
-import 'package:sample_code_gen/sample_code_gen.dart' as sample_code_gen;
+import 'package:sample_code_gen/lang/code_generator.dart';
+import 'package:sample_code_gen/lang/node.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${sample_code_gen.calculate()}!');
+void main() {
+  // Build AST
+  var tree = AddNode(NumberNode(3), NumberNode(4));
+
+  // Create CodeGenerator visitor
+  var codeGenerator = CodeGenerator();
+
+  // Traverse AST using visitor pattern
+  tree.accept(codeGenerator);
+
+  // Print generated code
+  print("Generated Code: ${codeGenerator.result}");
 }
