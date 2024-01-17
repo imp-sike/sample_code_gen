@@ -12,6 +12,15 @@ void main() {
   GeneralNumberNode n4 = GeneralNumberNode(6);
   GeneralNumberNode n5 = GeneralNumberNode(2);
 
+  GeneralAdditionNode a1  = GeneralAdditionNode(
+      n1,
+      GeneralAdditionNode(n2,
+          GeneralAdditionNode(n3,
+            null
+          )
+      )
+  );
+
   // sample traverse only number
-  sampleCalcVisitor.visitCalcNumber(n1);
+  sampleCalcVisitor.visitAddition(a1);
 }
