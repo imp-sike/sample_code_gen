@@ -11,6 +11,12 @@ void main() {
   GeneralNumberNode n3 = GeneralNumberNode(9);
   GeneralNumberNode n4 = GeneralNumberNode(6);
   GeneralNumberNode n5 = GeneralNumberNode(2);
+  GeneralSubtractionNode n6 = GeneralSubtractionNode(
+    n1,
+    GeneralAdditionNode(
+      n2, GeneralAdditionNode(n3, null)
+    )
+  );
 
   GeneralAdditionNode a1  = GeneralAdditionNode(
       n1,
@@ -22,5 +28,5 @@ void main() {
   );
 
   // sample traverse only number
-  sampleCalcVisitor.visitAddition(a1);
+  sampleCalcVisitor.visitSubtraction(n6);
 }

@@ -20,13 +20,29 @@ class  GeneralNumberNode implements CalcNode {
 // General Addition Node
 class GeneralAdditionNode implements CalcNode {
   GeneralNumberNode generalNumberNode;
-  GeneralAdditionNode? generalAdditionNode;
+  CalcNode? rightNode;
 
-  GeneralAdditionNode(this.generalNumberNode, this.generalAdditionNode);
+  GeneralAdditionNode(this.generalNumberNode, this.rightNode);
 
 
   @override
   void accept(CalcVisitor visitor) {
     visitor.visitAddition(this);
+  }
+}
+
+
+// General Subtraction Node
+class GeneralSubtractionNode implements CalcNode {
+  GeneralNumberNode generalNumberNode;
+  CalcNode? rightNode;
+  // GeneralAdditionNode? generalAdditionNode;
+
+  GeneralSubtractionNode(this.generalNumberNode, this.rightNode);
+
+
+  @override
+  void accept(CalcVisitor visitor) {
+    visitor.visitSubtraction(this);
   }
 }
